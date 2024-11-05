@@ -9,7 +9,7 @@ services:
     working_dir: /home/app/objectdb-2.8.9/bin
     command: [ "java", "-Xms1g", "-Xmx2g", "-jar", "objectdb.jar" ]
     volumes:
-      - ./data:/home/app/objectdb-2.8.9/db  # Directorio persistente en Windows para almacenamiento de datos
+      - ./data:/home/app/objectdb-2.8.9/db
     ports:
-      - "6136:6136"  # Asegúrate de que el puerto coincide con el de ObjectDB
+      - "6136:6136"
     restart: unless-stopped
