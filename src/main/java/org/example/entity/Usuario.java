@@ -2,7 +2,6 @@ package org.example.entity;
 
 import lombok.*;
 
-import javax.jdo.annotations.Unique;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
