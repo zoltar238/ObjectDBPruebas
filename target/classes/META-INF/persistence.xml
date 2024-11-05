@@ -8,7 +8,6 @@
     <persistence-unit name="objectdb-remote">
         <description>My Persistence Unit</description>
         <provider>com.objectdb.jpa.Provider</provider>
-        <jar-file>packedEntity.jar</jar-file>
         <properties>
             <property name="javax.persistence.jdbc.url"
                       value="objectdb://localhost:6136/mydb.odb"/>
