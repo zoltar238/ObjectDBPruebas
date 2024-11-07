@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  objectdb:
+    image: diegopansica/objectdb:2.8.9
+    container_name: objectdb_container
+    environment:
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - HOME=/home/app
+    working_dir: /home/app/objectdb-2.8.9/bin
+    command: [ "java", "-Xms1g", "-Xmx2g", "-jar", "objectdb.jar" ]
+    volumes:
+      - ./data:/home/app/objectdb-2.8.9/db  # Directorio persistente en Windows para almacenamiento de datos
+    ports:
+      - "6136:6136"  # Asegúrate de que el puerto coincide con el de ObjectDB
+    restart: unless-stopped
