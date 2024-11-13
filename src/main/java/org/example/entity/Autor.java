@@ -49,9 +49,9 @@ public class Autor {
      */
     @ManyToMany
     @JoinTable(
-            name = "autor_libro",  // Nombre de la tabla intermedia
-            joinColumns = @JoinColumn(name = "autor_id"),  // Clave foránea para autor
-            inverseJoinColumns = @JoinColumn(name = "libro_id")  // Clave foránea para libro
+            name = "autor_libro",
+            joinColumns = @JoinColumn(name = "autor_id"),
+            inverseJoinColumns = @JoinColumn(name = "libro_id")
     )
     private List<Libro> libros;
 }

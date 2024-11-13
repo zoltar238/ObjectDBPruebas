@@ -70,5 +70,9 @@ public class Main {
         for (Usuario u : usuarioService.obtenerTodosLosUsuarios()) {
             System.out.println(u.toString());
         }
+
+        // Al cerrarse la alplicacion se liberan los recursos del usuario service
+        // se cierra el EntityManagerFactory que quedaba abierto
+        Runtime.getRuntime().addShutdownHook(new Thread(usuarioService::cerrarEntityManagerFactory));
     }
 }

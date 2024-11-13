@@ -34,14 +34,6 @@ import java.util.List;
  */
 public class UsuarioDAOImp implements UsuarioDAO {
 
-        /**
-     * Inserta un usuario en la base de datos.
-     *
-     * @param usuario El objeto Usuario que se va a insertar.
-     * @param em El EntityManager que se utiliza para interactuar con la base de datos.
-     *
-     * @throws RuntimeException Si ocurre algún error durante la transacción.
-     */
     @Override
     public void insertarUsuario(Usuario usuario, EntityManager em) {
         EntityTransaction transaction = em.getTransaction();
@@ -57,14 +49,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
         }
     }
 
-        /**
-     * Elimina un usuario de la base de datos.
-     * 
-     * @param usuarioId El ID del usuario que se va a eliminar.
-     * @param em El EntityManager que se utiliza para interactuar con la base de datos.
-     * 
-     * @throws RuntimeException Si ocurre algún error durante la transacción.
-     */
+
     @Override
     public void eliminarUsuario(Long usuarioId, EntityManager em) {
         EntityTransaction transaction = em.getTransaction();
@@ -83,15 +68,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
         }
     }
 
-        /**
-     * Actualiza un usuario existente en la base de datos.
-     * 
-     * @param id El ID del usuario que se va a actualizar.
-     * @param usuario El objeto Usuario con los nuevos datos a actualizar.
-     * @param em El EntityManager que se utiliza para interactuar con la base de datos.
-     * 
-     * @throws RuntimeException Si ocurre algún error durante la transacción.
-     */
+
     @Override
     public void actualizarUsuario(Long id, Usuario usuario, EntityManager em) {
         EntityTransaction transaction = em.getTransaction();
@@ -114,25 +91,13 @@ public class UsuarioDAOImp implements UsuarioDAO {
         }
     }
 
-        /**
-     * Obtiene un usuario de la base de datos por su ID.
-     *
-     * @param usuarioId El ID del usuario que se desea obtener.
-     * @param em El EntityManager que se utiliza para interactuar con la base de datos.
-     * @return El objeto Usuario correspondiente al ID proporcionado, o null si no se encuentra.
-     */
+
     @Override
     public Usuario obtenerUsuarioPorId(Long usuarioId, EntityManager em) {
         return em.find(Usuario.class, usuarioId);  // Buscar el usuario por ID
     }
 
-        /**
-     * Obtiene una lista de todos los usuarios almacenados en la base de datos.
-     *
-     * @param em El EntityManager que se utiliza para interactuar con la base de datos.
-     * @return Una lista de objetos Usuario que representa todos los usuarios en la base de datos.
-     *         La lista estará vacía si no hay usuarios en la base de datos.
-     */
+
     @Override
     public List<Usuario> obtenerUsuarios(EntityManager em) {
         TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u", Usuario.class);
