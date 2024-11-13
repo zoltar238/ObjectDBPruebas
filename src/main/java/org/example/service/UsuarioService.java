@@ -21,14 +21,7 @@ public class UsuarioService {
     public void insertarUsuario(Usuario usuario) {
         EntityManager em = emf.createEntityManager();
         try {
-            em.getTransaction().begin();
             usuarioDAOImp.insertarUsuario(usuario, em);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            throw e;
         } finally {
             em.close();
         }
@@ -42,14 +35,7 @@ public class UsuarioService {
     public void eliminarUsuario(Long idUsuario) {
         EntityManager em = emf.createEntityManager();
         try {
-            em.getTransaction().begin();
             usuarioDAOImp.eliminarUsuario(idUsuario, em);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            throw e;
         } finally {
             em.close();
         }
@@ -64,14 +50,7 @@ public class UsuarioService {
     public void actualizarUsuario(Long id, Usuario usuario) {
         EntityManager em = emf.createEntityManager();
         try {
-            em.getTransaction().begin();
             usuarioDAOImp.actualizarUsuario(id, usuario, em);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            throw e;
         } finally {
             em.close();
         }
@@ -82,7 +61,7 @@ public class UsuarioService {
      *
      * @param idUsuario El ID del usuario que se desea obtener.
      * @return El objeto {@link Usuario} correspondiente al ID proporcionado,
-     *         o {@code null} si no se encuentra un usuario con ese ID.
+     *         o {@code null} si no se encuentr un usuario con ese ID.
      */
     public Usuario obtenerUsuarioPorId(Long idUsuario) {
         EntityManager em = emf.createEntityManager();
